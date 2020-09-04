@@ -1,0 +1,5 @@
+In python u can 打印文字
+In python u can 打印列表
+In python u can 打印字典
+In python u can 爬虫
+In python u can 机器学习
