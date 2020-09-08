@@ -37,6 +37,6 @@ class  IceCreamStand(Restaurant):
         for i in self.flavors:
             print(i)
 
-icecream_1 = IceCreamStand('夏日酒店', 'wuxing')
-icecream_1.describe_restaurant()
-icecream_1.show_icecream()
+# icecream_1 = IceCreamStand('夏日酒店', 'wuxing')
+# icecream_1.describe_restaurant()
+# icecream_1.show_icecream()
