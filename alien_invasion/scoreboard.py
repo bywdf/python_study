@@ -1,7 +1,7 @@
 import pygame.font
 
 class Scoreboard():
-    '''显示得分信息'''
+    '''显示得分信息的类'''
     
     def __init__(self, ai_settings, screen, stats):
         '''初始化显示得分涉及的属性'''
@@ -22,7 +22,7 @@ class Scoreboard():
         # 将得分放在屏幕右上角
         self.score_rect = self.score_image.get_rect()
         self.score_rect.right = self.screen_rect.right - 20
-        self.screen_rect.top = 20
+        self.score_rect.top = 20
 
     def show_score(self):
         '''在屏幕上显示得分'''
