@@ -14,16 +14,30 @@ class Scoreboard():
         self.font = pygame.font.SysFont(None, 48)
         # 初始化得分图像
         self.prep_score()
+        # 准备包含最高得分和当前得分的图像
+        self.prep_hight_score()
 
     def prep_score(self):
-        '''将得分转换为一幅渲染的图像'''
-        score_str = str(self.stats.score)
+        '''将得分转换为渲染的图像'''
+        rounded_score = round(self.stats.score, -1)    # python2.7需要加int
+        score_str = "{:,}".format(rounded_score)
         self.score_image = self.font.render(score_str, True, self.text_color, self.ai_settings.bg_color)
         # 将得分放在屏幕右上角
         self.score_rect = self.score_image.get_rect()
         self.score_rect.right = self.screen_rect.right - 20
         self.score_rect.top = 20
 
+    def prep_hight_score(self):
+        '''将最高得分转换为渲染的图像'''
+        hight_score = round(self.stats.hight_score, -1)
+        hight_score_str = "{:,}".format(hight_score)
+        self.hight_score_image = self.font.render(hight_score_str, True, self.text_color, self.ai_settings.bg_color)
+        # 将最高得分放在屏幕顶部中央
+        self.hight_score_rect = self.hight_score_image.get_rect()
+        self.hight_score_rect.centerx = self.screen_rect.centerx
+        self.hight_score_rect.top = self.score_rect.top
+
     def show_score(self):
-        '''在屏幕上显示得分'''
+        '''在屏幕上显示得分和最高得分'''
         self.screen.blit(self.score_image, self.score_rect)
+        self.screen.blit(self.hight_score_image, self.hight_score_rect)

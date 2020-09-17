@@ -91,6 +91,12 @@ def update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets):
     # 检查是否有子弹击中了外星人，如果击中，就删除相应的子弹和外星人
     check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, bullets)
 
+def check_hight_score(stats, sb):
+    '''检查是否诞生了新的最高得分'''
+    if stats.score > stats.hight_score:
+        stats.hight_score = stats.score
+        sb.prep_hight_score()
+
 def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, bullets):
     '''响应子弹和外星人的碰撞'''
     # 删除发生碰撞的子弹和外星人
@@ -102,6 +108,7 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, 
             sb.prep_score()
         stats.score += ai_settings.alien_points
         sb.prep_score()
+        check_hight_score(stats, sb)
 
     if len(aliens) == 0:
         # 删除现有的子弹,加快游戏节奏，并新建一群外星人
