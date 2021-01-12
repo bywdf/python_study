@@ -9,6 +9,10 @@ urlpatterns = [
     #主页
     # url('^$', views.index, name = 'index' ),
     path('', views.index, name = 'index'),
+    # 所有主题页
     path('topics/', views.topics, name='topics'),
+    # 特定肢体详细页
     path('topics/<topic_id>/', views.topic, name = 'topic'),
+    # 用于添加主题的页
+    path('new_topic/', views.new_topic, name='new_topic'),
 ]
