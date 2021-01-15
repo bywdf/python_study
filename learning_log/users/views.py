@@ -21,7 +21,7 @@ def register(request):
         if form.is_valid():
             new_user = form.save()
             # 让用户自动登录，再重新定向到主页
-            authenticate_user = authenticate(username=new_user.username,\
+            authenticate_user = authenticate(username=new_user.username,
                 password=request.POST['password1'])
             login(request, authenticate_user)
             return HttpResponseRedirect(reverse('learning_logs:index'))
